@@ -18,22 +18,20 @@ class Agent:
     and initialization parameters.
     
     Attributes:
-        client_kwargs (dict): Dictionary storing client initialization parameters.
+        client: The required AI client instance.
+        client_kwargs (dict): Dictionary storing client configuration parameters.
     """
 
-    def __init__(self, client=None, **kwargs) -> None:
-        """Initialize the Agent with a client and additional parameters.
+    def __init__(self, client, **kwargs) -> None:
+        """Initialize the Agent with a required client and additional parameters.
         
         Args:
-            client: The AI client instance to be used (optional).
+            client: The AI client instance (required).
             **kwargs: Additional keyword arguments for client configuration.
         """
-        # Store all initialization parameters
         self.client_kwargs = kwargs
+        self.client_kwargs["client"] = client
         
-        # If a client is provided, add it to the configuration
-        if client is not None:
-            self.client_kwargs["client"] = client
 
     @contextmanager
     def get_client(self, client=None, **kwargs):
