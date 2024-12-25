@@ -6,7 +6,7 @@ responses using different AI service providers.
 """
 
 from contextlib import contextmanager
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from ..core.clients import known_clients
 from ..core.request import Request
@@ -21,8 +21,18 @@ class Agent(BaseModel):
         client: The required AI client instance (must be a string).
         client_kwargs: Dictionary storing client configuration parameters.
     """
-    client: str = Field(..., description="The AI client instance")
-    client_kwargs: dict = Field(default_factory=dict, description="Additional client configuration parameters")
+    client_kwargs: dict = Field(default_factory=dict, description="Client configuration parameters including the client instance")
+
+    @field_validator('client_kwargs')
+    def validate_client(cls, v: dict) -> dict:
+        """Validate that client exists in client_kwargs and is a non-None string."""
+        if 'client' not in v:
+            raise ValueError("client must be provided.")
+        if not isinstance(v['client'], str):
+            raise ValueError("client must be a string")
+        if v['client'] is None:
+            raise ValueError("client cannot be None")
+        return v
 
     def __init__(self, client: str, **kwargs) -> None:
         """Initialize the Agent with a required client and additional parameters.
@@ -31,14 +41,8 @@ class Agent(BaseModel):
             client: The AI client instance (required string).
             **kwargs: Additional keyword arguments for client configuration.
         """
-        super().__init__(
-                    client=client,
-                    client_kwargs=kwargs
-                )
-
-        self.client_kwargs = kwargs
-        self.client_kwargs["client"] = client
-        
+        kwargs["client"] = client
+        super().__init__(client_kwargs=kwargs)
 
     @contextmanager
     def get_client(self, client=None, **kwargs):
