@@ -42,4 +42,5 @@ if __name__ == "__main__":
         model="gpt-4o-mini", 
         prompt="Can you give me a hello world program in python?", 
     )
+
     print(res.content)

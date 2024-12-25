@@ -6,29 +6,36 @@ responses using different AI service providers.
 """
 
 from contextlib import contextmanager
-
+from pydantic import BaseModel, Field
 
 from ..core.clients import known_clients
 from ..core.request import Request
 
-class Agent:
+class Agent(BaseModel):
     """Base Agent class for handling AI client interactions.
     
     This class serves as a foundation for AI agents, managing client configuration
     and initialization parameters.
     
     Attributes:
-        client: The required AI client instance.
-        client_kwargs (dict): Dictionary storing client configuration parameters.
+        client: The required AI client instance (must be a string).
+        client_kwargs: Dictionary storing client configuration parameters.
     """
+    client: str = Field(..., description="The AI client instance")
+    client_kwargs: dict = Field(default_factory=dict, description="Additional client configuration parameters")
 
-    def __init__(self, client, **kwargs) -> None:
+    def __init__(self, client: str, **kwargs) -> None:
         """Initialize the Agent with a required client and additional parameters.
         
         Args:
-            client: The AI client instance (required).
+            client: The AI client instance (required string).
             **kwargs: Additional keyword arguments for client configuration.
         """
+        super().__init__(
+                    client=client,
+                    client_kwargs=kwargs
+                )
+
         self.client_kwargs = kwargs
         self.client_kwargs["client"] = client
         
