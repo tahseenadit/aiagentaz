@@ -15,9 +15,16 @@ pip install aiagentaz
 ## Quick Start
 
 ```python
-from aiagentaz.domain import agent
+from aiagentaz.domain.agent import Agent
 
-res = agent.generate(client="openai", model="gpt-4-mini", prompt="Can you give me a hello world program in python?", api_key="your-api-key")
+my_agent = Agent(
+    client="openai", 
+    api_key="your-api-key"
+)
+res = my_agent.generate( 
+    model="gpt-4o-mini", 
+    prompt="Can you give me a hello world program in python?", 
+)
 print(res.content)
 ```
 
