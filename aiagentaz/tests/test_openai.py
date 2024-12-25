@@ -7,30 +7,25 @@ import pytest
 import openai
 from unittest.mock import patch, Mock
 
-from aiagentaz.domain import agent
+from aiagentaz.domain.agent import Agent
 
 
 def test_openai_generate():
-    """
-    Test the OpenAI generate function with mocked API response.
+    """Test the OpenAI generate function with mocked API response."""
+    # Create an agent instance
+    test_agent = Agent(client="openai", api_key="test-key")
     
-    This test verifies that:
-    1. The generate function returns the expected response
-    2. The mocked response content matches our test case
-    """
     # Mock the API response
     mock_response = Mock()
     mock_response.content = "print('Hello, World!')"
     
-    with patch('aiagentaz.domain.agent.generate') as mock_generate:
+    with patch('aiagentaz.domain.agent.Agent.generate') as mock_generate:
         mock_generate.return_value = mock_response
         
-        # Test the function call with sample parameters
-        response = agent.generate(
-            client="openai",
+        # Test the function call
+        response = test_agent.generate(
             prompt="Create a hello world program in python.",
-            model="gpt-4-mini",
-            api_key="test-key"
+            model="gpt-4o-mini"
         )
         
         # Verify the response matches our expected output
@@ -39,10 +34,12 @@ def test_openai_generate():
 
 if __name__ == "__main__":
     
-    res = agent.generate(
+    my_agent = Agent(
         client="openai", 
+        api_key="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"
+    )
+    res = my_agent.generate( 
         model="gpt-4o-mini", 
         prompt="Can you give me a hello world program in python?", 
-        api_key="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"
     )
     print(res.content)
