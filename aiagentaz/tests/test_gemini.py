@@ -24,12 +24,12 @@ def test_gemini_generate():
         # Test the function call
         response = test_agent.generate(
             prompt="Create a hello world program in python.",
-            model="gpt-4o-mini"
+            model="gemini-1.5-flash"
         )
 
         # Verify the response matches our expected output
         assert response.content == "print('Hello, World!')"
-         
+
 
 if __name__ == "__main__":
     
