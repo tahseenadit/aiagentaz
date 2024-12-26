@@ -3,8 +3,6 @@ Unit tests for OpenAI integration functionality.
 Tests the agent's ability to generate responses using OpenAI's API.
 """
 
-import pytest
-import openai
 from unittest.mock import patch, Mock
 
 from aiagentaz.domain.agent import Agent

@@ -47,3 +47,10 @@ known_clients["openai"] = ClientConfig(
     class_name="OpenAIClient",
     module_name="aiagentaz.domain.clients.openai"
 )
+
+# Register the Gemini client configuration
+known_clients["gemini"] = ClientConfig(
+    name="gemini",
+    class_name="GeminiClient",
+    module_name="aiagentaz.domain.clients.gemini"
+)
