@@ -32,6 +32,7 @@ print(res.content)
 
 Currently supported AI service providers:
 - OpenAI
+- Gemini
 
 ## Contributing
 
