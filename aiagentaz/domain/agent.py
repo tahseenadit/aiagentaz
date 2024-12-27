@@ -45,22 +45,23 @@ class Agent(BaseModel):
         super().__init__(client_kwargs=kwargs)
 
     @contextmanager
-    def get_client(self, client=None, **kwargs):
+    def get_client(self, client: str, **kwargs):
         """
         Context manager for handling client initialization and cleanup.
         
         Args:
-            client (str, optional): The name of the client to initialize. Defaults to None.
+            client (str): The name of the client to initialize (required).
             **kwargs: Additional keyword arguments passed to the client constructor.
             
         Yields:
             object: An initialized client instance or None if initialization fails.
             
-        Example:
-            with get_client("openai", api_key="key") as client:
-                if client:
-                    result = client.generate(prompt="Hello")
+        Raises:
+            ValueError: If client is None or not a string.
         """
+        if not client:
+            raise ValueError("client parameter is required")
+            
         request = Request(client)
 
         try:
@@ -68,9 +69,8 @@ class Agent(BaseModel):
             yield config.client_class(**kwargs)
         except Exception as e:
             print(f"Error initializing client: {e}")
-            yield None  # Yield None if there's an error and exit early
+            yield None
         finally:
-            # Any cleanup code can go here if needed
             pass
 
 
