@@ -34,6 +34,14 @@ Currently supported AI service providers:
 - OpenAI
 - Gemini
 
+## Capabilities
+
+# OpenAI
+- Simple text generation
+
+# Gemini
+- Simple text generation
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
