@@ -26,20 +26,23 @@ class GeminiClient:
         except Exception as e:
             print(f"Error configuring API: {e}")
 
-    def generate(self, prompt: str = None, model: str = None, **kwargs) -> str | None:
+    def generate(self, prompt: str, model: str, **kwargs) -> str:
         """Generate text using the specified Gemini model.
         
         Args:
-            prompt: The input text prompt for generation.
-            model: The name of the Gemini model to use (e.g., 'gemini-pro').
+            prompt: The input text prompt for generation (required).
+            model: The name of the Gemini model to use (required).
             **kwargs: Additional parameters for text generation.
         
         Returns:
             str | None: The generated text if successful, None if an error occurs.
         
         Raises:
-            Exception: If text generation fails.
+            ValueError: If prompt or model is None or empty.
         """
+        if not prompt or not model:
+            raise ValueError("Both prompt and model parameters are required.")
+            
         try:
             # Initialize the model with specified name
             self.model = genai.GenerativeModel(model_name=model)            
@@ -48,4 +51,3 @@ class GeminiClient:
             return response.text            
         except Exception as e:
             print(f"Error generating text: {e}")
-            return None

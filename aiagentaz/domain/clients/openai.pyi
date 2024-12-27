@@ -1,12 +1,12 @@
-from typing import Optional, Dict, Any
-from openai.types.chat import ChatCompletion
+from typing import Dict, Any
+from openai.types.chat.chat_completion import ChatCompletionMessage
 
 class OpenAIClient:
     def __init__(self, **kwargs: Dict[str, Any]) -> None: ...
 
     def generate(
         self,
-        prompt: Optional[str] = None,
-        model: Optional[str] = None,
+        prompt: str,
+        model: str,
         **kwargs: Dict[str, Any]
-    ) -> Optional[ChatCompletion.Choice.Message]: ...
+    ) -> ChatCompletionMessage: ...

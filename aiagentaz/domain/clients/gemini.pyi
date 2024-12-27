@@ -1,11 +1,11 @@
-from typing import Optional, Dict, Any
+from typing import Dict, Any
 
 class GeminiClient:
     def __init__(self, **kwargs: Dict[str, Any]) -> None: ...
 
     def generate(
         self, 
-        prompt: Optional[str] = None, 
-        model: Optional[str] = None, 
+        prompt: str, 
+        model: str, 
         **kwargs: Dict[str, Any]
-    ) -> Optional[str]: ... 
+    ) -> str: ... 

@@ -7,6 +7,7 @@ to OpenAI's services and handling responses.
 
 
 from openai import OpenAI
+from openai.types.chat.chat_completion import ChatCompletionMessage
 
 class OpenAIClient:
     """
@@ -24,7 +25,7 @@ class OpenAIClient:
         self.client = OpenAI(**kwargs)
 
 
-    def generate(self, prompt=None, model=None, **kwargs) -> None:
+    def generate(self, prompt: str, model: str, **kwargs) -> ChatCompletionMessage:
         """
         Generate a response from OpenAI's model.
         
@@ -33,6 +34,10 @@ class OpenAIClient:
             model (str): The model to use for generation
             **kwargs: Additional configuration parameters
         """
+
+        if not prompt or not model:
+            raise ValueError("Both prompt and model parameters are required.")
+
         messages=[
             {"role": "user", "content": prompt}
         ]
