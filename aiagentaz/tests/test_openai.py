@@ -30,7 +30,7 @@ def test_openai_generate():
         assert response.content == "print('Hello, World!')"
 
 
-if __name__ == "__main__":
+"""if __name__ == "__main__":
     
     my_agent = Agent(
         client="openai", 
@@ -41,4 +41,4 @@ if __name__ == "__main__":
         prompt="Can you give me a hello world program in python?", 
     )
 
-    print(res.content)
+    print(res.content)"""

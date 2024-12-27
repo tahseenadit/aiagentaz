@@ -30,7 +30,7 @@ def test_gemini_generate():
         # Verify the response matches our expected output
         assert response.content == "print('Hello, World!')"
 
-
+"""
 if __name__ == "__main__":
     
     my_agent = Agent(
@@ -42,4 +42,4 @@ if __name__ == "__main__":
         prompt="Can you give me a hello world program in python?", 
     )
 
-    print(res)
+    print(res)"""

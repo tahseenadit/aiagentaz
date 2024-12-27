@@ -22,7 +22,8 @@ setup(
     author_email="tahseen.adit@gmail.com",
     packages=find_packages(),
     install_requires=[
-        "openai>=0.27.0",
+        "openai",
+        "google-generativeai"
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",
