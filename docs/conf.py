@@ -119,7 +119,7 @@ html_theme_options = {
 html_context = {
     "github_user": "tahseenadit",
     "github_repo": "aiagentaz",
-    "github_version": "master",
+    "github_version": "main",
     "doc_path": "docs/",
 }
 
