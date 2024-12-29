@@ -24,8 +24,8 @@ extensions = [
     "sphinx.ext.linkcode",
 ]
 
-# Add any paths that contain templates here
-templates_path = ["_templates"]
+# Add any paths that contain templates here. Uncomment when there are something in the directory.
+# templates_path = ["_templates"]
 autodoc_mock_imports = ["openai", "google.generativeai"]
 
 # The suffix of source filenames
@@ -123,8 +123,8 @@ html_context = {
     "doc_path": "docs/",
 }
 
-# Add any paths that contain custom static files
-html_static_path = ["_static"]
+# Add any paths that contain custom static files.  Uncomment when there are something in the directory.
+# html_static_path = ["_static"]
 
 # Output file base name for HTML help builder
 htmlhelp_basename = "aiagentazdoc"
