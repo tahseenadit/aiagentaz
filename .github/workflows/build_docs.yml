@@ -1,0 +1,19 @@
+name: Documentation  # Name of the workflow
+
+on:
+  workflow_call:  # Trigger this workflow when called by another workflow
+
+jobs:
+  docs-GH:  # Job name for building documentation
+    name: Build Docs  # Display name for the job
+    runs-on: ubuntu-latest  # The environment to run the job
+    steps:
+    - uses: actions/checkout@v4  # Checkout the repository code
+    - uses: actions/setup-python@v5  # Set up Python environment
+      with:
+        python-version: '3.x'  # The Python version to use
+    - name: Install Dependencies  # Install the package in editable mode with docs extras
+      run: |
+        pip install -e .[docs] 
+    - name: Build Docs  # Step to build the documentation
+      run: sphinx-build -W ./docs ./build  # Run Sphinx to build the documentation from ./docs to ./build

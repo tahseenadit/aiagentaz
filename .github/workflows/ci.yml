@@ -1,0 +1,50 @@
+name: CI
+
+# This action runs through aiagentaz's continous integration pipeline. 
+#
+# The workflow is triggered under two circumstances:
+#
+# On a push: When code is pushed to the master branch.
+# On a pull request: When a pull request is opened or updated for the master branch.
+# 
+# It performs the following checks:
+# 
+# - Linting/Style (Black)
+# - Invokes the unit tests in no-internet mode on python 3.12
+# - runs unit test on cypthon in matrix mode (python 3.X) x (3 major OS)
+# - runs unit tests on pypy in matrix mode (pypy 3.X) x (3 major OS)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# Concurrency ensures that multiple runs of the workflow do not overlap for the same reference (branch, pull request, etc.)
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs-GH: # Build docs
+    name: Build Docs
+    uses: ./.github/workflows/build_docs.yml
+  run-tests:  # Job to run unit tests and coverage
+    name: Run Unit Tests and Coverage  # Display name for the job
+    runs-on: ubuntu-latest  # Specify the environment to run the job
+    steps:
+    - uses: actions/checkout@v4  # Checkout the repository code
+    - uses: actions/setup-python@v5  # Set up Python environment
+      with:
+        python-version: '3.x'  # Specify the Python version to use
+    - name: Install Dependencies  # Step to install required dependencies in editable mode
+      run: |
+        pip install -e .  
+    - name: Run Unit Tests  # Step to run unit tests
+      run: |
+        pip install pytest pytest-cov
+        pytest --cov=aiagentaz
+    - name: Upload Coverage Report  # Step to upload coverage report (optional) to codecov
+      run: |
+        pip install codecov
+        codecov
