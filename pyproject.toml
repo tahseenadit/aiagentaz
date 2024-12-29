@@ -24,7 +24,8 @@ classifiers = [
 ]
 dependencies = [
     "openai",  # Dependency for OpenAI API
-    "google-generativeai"  # Dependency for Google Generative AI
+    "google-generativeai",  # Dependency for Google Generative AI
+    "anthropic" # Dependency for anthropic
 ]
 requires-python = ">=3.7"  # Minimum required Python version
 
