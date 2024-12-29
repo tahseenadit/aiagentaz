@@ -33,6 +33,7 @@ print(res.content)
 Currently supported AI service providers:
 - OpenAI
 - Gemini
+- Anthropic
 
 ## Capabilities
 
@@ -40,6 +41,9 @@ Currently supported AI service providers:
 - Simple text generation
 
 ### Gemini
+- Simple text generation
+
+### Anthropic
 - Simple text generation
 
 ## Contributing
