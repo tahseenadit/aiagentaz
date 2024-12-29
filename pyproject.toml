@@ -32,5 +32,6 @@ requires-python = ">=3.7"  # Minimum required Python version
 docs = [
     "sphinx",  # Documentation generator
     "sphinx-rtd-theme",  # Read the Docs theme for Sphinx
-    "numpydoc"
+    "numpydoc",
+    "pydata-sphinx-theme"
 ]
