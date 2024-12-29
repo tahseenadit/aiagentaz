@@ -60,7 +60,7 @@ cd aiagentaz
 
 2. Install development dependencies
 ```bash
-pip install -e ".[dev]"
+pip install -e .
 ```
 
 3. Run tests
