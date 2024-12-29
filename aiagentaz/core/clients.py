@@ -54,3 +54,10 @@ known_clients["gemini"] = ClientConfig(
     class_name="GeminiClient",
     module_name="aiagentaz.domain.clients.gemini"
 )
+
+# Register the Anthropic client configuration
+known_clients["anthropic"] = ClientConfig(
+    name="anthropic",
+    class_name="AnthropicClient",
+    module_name="aiagentaz.domain.clients.anthropic"
+)

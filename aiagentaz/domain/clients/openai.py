@@ -53,5 +53,3 @@ class OpenAIClient:
             return response.choices[0].message
         except Exception as e:
             print(f"OpenAI API error: {e}")
-
-    
