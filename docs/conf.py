@@ -124,7 +124,7 @@ html_context = {
 }
 
 # Add any paths that contain custom static files
-html_static_path = ["docs/_static"]
+html_static_path = ["_static"]
 
 # Output file base name for HTML help builder
 htmlhelp_basename = "aiagentazdoc"
