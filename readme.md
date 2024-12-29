@@ -36,10 +36,10 @@ Currently supported AI service providers:
 
 ## Capabilities
 
-# OpenAI
+### OpenAI
 - Simple text generation
 
-# Gemini
+### Gemini
 - Simple text generation
 
 ## Contributing
@@ -73,6 +73,3 @@ If you encounter any problems or have any questions, please [open an issue](http
 - Inspired by the need for a unified AI service interface
 
 ---
-
-Made with ❤️ by Md Tahseen Anam
-```
