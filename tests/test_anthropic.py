@@ -28,18 +28,3 @@ def test_anthropic_generate():
         
         # Verify the response matches our expected output
         assert response.content == "print('Hello, World!')"
-
-
-"""if __name__ == "__main__":
-    
-    my_agent = Agent(
-        client="anthropic", 
-        api_key="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"
-    )
-    res = my_agent.generate( 
-        model="claude-3-5-sonnet-20241022", 
-        prompt="Can you give me a hello world program in python?",
-        max_tokens=1000, 
-    )
-
-    print(res.content)"""
