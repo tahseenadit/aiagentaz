@@ -16,9 +16,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 # Concurrency ensures that multiple runs of the workflow do not overlap for the same reference (branch, pull request, etc.)
 concurrency:
