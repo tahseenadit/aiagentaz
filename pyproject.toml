@@ -31,5 +31,6 @@ requires-python = ">=3.7"  # Minimum required Python version
 [project.optional-dependencies]
 docs = [
     "sphinx",  # Documentation generator
-    "sphinx-rtd-theme"  # Read the Docs theme for Sphinx
+    "sphinx-rtd-theme",  # Read the Docs theme for Sphinx
+    "numpydoc"
 ]
