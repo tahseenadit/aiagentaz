@@ -35,3 +35,9 @@ docs = [
     "numpydoc",
     "pydata-sphinx-theme"
 ]
+
+tests = [
+    "pytest",
+    "pytest-cov",
+    "codecov"
+]

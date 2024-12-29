@@ -37,12 +37,10 @@ jobs:
         python-version: '3.x'  # Specify the Python version to use
     - name: Install Dependencies  # Step to install required dependencies in editable mode
       run: |
-        pip install -e .  
+        pip install -e .[tests] 
     - name: Run Unit Tests  # Step to run unit tests
       run: |
-        pip install pytest pytest-cov
         pytest --cov=aiagentaz
     - name: Upload Coverage Report  # Step to upload coverage report (optional) to codecov
       run: |
-        pip install codecov
         codecov
