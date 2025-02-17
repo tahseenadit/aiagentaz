@@ -11,16 +11,29 @@ class Chain:
         """Check if the function has a keyword argument."""
         return keyword in inspect.signature(func).parameters
     
-    def decorate(self, *args, **kwargs):
+    def decorate(self, func: Callable):
         """Decorate the function with the previous response."""
-        if args and callable(args[0]):
-            func = args[0]
-            kwargs = kwargs.copy()
-            kwargs["previous_response"] = self.res
+        def wrapper(*args, **kwargs):
             if self.has_keyword_argument(func, "previous_response"):
-                res = func(*args[1:], **kwargs)
-                chain = Chain(res)
-                return chain.decorate
+                if args:
+                    if callable(args[0]):
+                        kwargs = kwargs.copy()
+                        kwargs["previous_response"] = self.res
+                        res = func(*args[1:], **kwargs)
+                        chain = Chain(res)
+                        return chain.decorate(func = args[0])
+                    else:
+                        kwargs = kwargs.copy()
+                        kwargs["previous_response"] = self.res
+                        res = func(*args, **kwargs)
+                        return res
+                else:
+                    kwargs = kwargs.copy()
+                    kwargs["previous_response"] = self.res
+                    res = func(**kwargs)
+                    return res
             else:
                 raise ValueError(f"The function {func.__name__} must have a 'previous_response' keyword argument.")
+        return wrapper
+        
         
