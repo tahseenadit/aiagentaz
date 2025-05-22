@@ -102,6 +102,6 @@ If you encounter any problems or have any questions, please [open an issue](http
 
 ## Acknowledgments
 
-- Inspired by the need for a unified AI service interface
+- Inspired by the need for an unified AI service interface
 
 ---
