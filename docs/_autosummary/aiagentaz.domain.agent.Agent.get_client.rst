@@ -1,5 +1,5 @@
 aiagentaz.domain.agent.Agent.get_client
-======================================
+=======================================
 
 .. currentmodule:: aiagentaz.domain.agent
 

@@ -78,12 +78,13 @@ class Agent(BaseModel):
         Args:
             model (str): The model to use for generation. Defaults to None.
             prompt (str): The input prompt for generation. Defaults to None.
-            **kwargs: Additional keyword arguments for client configuration and generation.
+            kwargs: Additional keyword arguments for client configuration and generation.
 
         Returns:
             object: The generation result from the client, or 0 if an error occurs.
 
         Example:
+
             response = generate(
                 client="openai",
                 prompt="Write a poem",
