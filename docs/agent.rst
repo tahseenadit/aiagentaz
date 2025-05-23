@@ -38,7 +38,7 @@ API Reference
    :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings, copy
 
 Configuration
-------------
+-------------
 
 The Agent class accepts the following configuration parameters:
 
@@ -47,7 +47,7 @@ The Agent class accepts the following configuration parameters:
 - Additional provider-specific parameters can be passed as keyword arguments
 
 Supported Clients
----------------
+----------------
 
 - OpenAI
 - Gemini

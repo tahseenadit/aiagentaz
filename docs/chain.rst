@@ -1,43 +1,49 @@
 Chain
 =====
 
-The chain module provides a decorator-based approach for creating chains of operations.
+The Chain module provides a decorator-based approach for creating sequential operations.
 
 Overview
 --------
 
-The chain functionality allows you to create sequences of operations where each step can access the result of the previous step. This is particularly useful for building complex AI workflows.
+The Chain module allows you to create a sequence of operations where each step can use the output of the previous step.
 
 Basic Usage
-----------
+-----------
 
 .. code-block:: python
 
     from aiagentaz.domain.chain import chain
 
     @chain
-    def first_step():
-        return "Initial prompt"
+    def get_prompt():
+        return "Write a story about a magical forest"
 
-    @first_step
-    def second_step(previous_response: str = None):
-        return f"{previous_response} with enhancement"
+    @get_prompt
+    def enhance_prompt(previous_response: str = None):
+        return previous_response + " Give it a title and a short description"
+
+    @enhance_prompt
+    def add_details(previous_response: str = None):
+        return previous_response + " Generate a list of 5 key events in the story"
 
     # Execute the chain
-    result = second_step()
+    result = add_details()
+    print(result)
 
 API Reference
-------------
+-------------
 
-.. autofunction:: aiagentaz.domain.chain.chain
+.. autoclass:: aiagentaz.domain.chain.Chain
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members: __init__
 
 Chain Class
 ----------
 
-.. autoclass:: aiagentaz.core.chain.Chain
-   :members:
-   :undoc-members:
-   :show-inheritance:
+The Chain class provides the core functionality for creating and managing operation chains.
 
 Features
 --------
