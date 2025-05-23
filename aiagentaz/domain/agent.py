@@ -46,8 +46,7 @@ class Agent(BaseModel):
 
     @contextmanager
     def get_client(self, client: str, **kwargs):
-        """
-        Context manager for handling client initialization and cleanup.
+        """Context manager for handling client initialization and cleanup.
         
         Args:
             client (str): The name of the client to initialize (required).
@@ -73,10 +72,8 @@ class Agent(BaseModel):
         finally:
             pass
 
-
     def generate(self, model=None, prompt=None, **kwargs):
-        """
-        Generate a response using the specified client and configuration.
+        """Generate a response using the specified client and configuration.
 
         Args:
             model (str): The model to use for generation. Defaults to None.

@@ -48,6 +48,11 @@ exclude_patterns = ["_build"]
 # The name of the Pygments style to use
 pygments_style = "sphinx"
 
+# Autosummary configuration
+autosummary_generate = True
+autosummary_imported_members = True
+autosummary_mock_imports = ["openai", "google.generativeai", "anthropic"]
+
 # Function to generate source links pointing to GitHub
 def linkcode_resolve(domain, info):
     if domain != "py":
