@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"  # Backend used for building the package
 
 [project]
 name = "aiagentaz"  # Name of the package
-version = "0.1.0"  # Current version of the package
+version = "0.2.0"  # Current version of the package
 description = "A Python package for easily interacting with various AI services."  # Brief description of the package
 readme = { file = "README.md", content-type = "text/markdown" }  # Readme file and its content type
 authors = [
