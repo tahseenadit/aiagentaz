@@ -36,7 +36,7 @@ Basic Usage
     print(res.content)
 
 Chain Operations
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Chain multiple operations using decorators:
 

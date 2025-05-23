@@ -9,7 +9,7 @@ Overview
 The graph system allows you to create directed acyclic graphs (DAGs) of operations, where each node can depend on the output of other nodes. This is particularly useful for creating complex workflows with multiple dependencies.
 
 Basic Usage
-----------
+-----------
 
 .. code-block:: python
 
@@ -32,10 +32,10 @@ Basic Usage
     result = workflow.execute_task()
 
 API Reference
-------------
+-------------
 
 BasicOperator
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 .. autoclass:: aiagentaz.domain.graph.operators.basicoperator.BasicOperator
    :members:
@@ -43,7 +43,7 @@ BasicOperator
    :show-inheritance:
 
 DependencyABC
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 .. autoclass:: aiagentaz.core.graph.abc.DependencyABC
    :members:
