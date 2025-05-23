@@ -52,6 +52,9 @@ pygments_style = "sphinx"
 autosummary_generate = True
 autosummary_imported_members = True
 autosummary_mock_imports = ["openai", "google.generativeai", "anthropic"]
+autosummary_context = {
+    'skip_inherited_members': True,
+}
 
 # Function to generate source links pointing to GitHub
 def linkcode_resolve(domain, info):
