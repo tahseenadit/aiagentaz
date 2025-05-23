@@ -9,7 +9,7 @@ Overview
 The Agent class serves as the main entry point for making requests to different AI service providers. It handles client initialization, configuration, and request generation.
 
 Basic Usage
-----------
+-----------
 
 .. code-block:: python
 
@@ -28,7 +28,7 @@ Basic Usage
     )
 
 API Reference
-------------
+-------------
 
 .. autoclass:: aiagentaz.domain.agent.Agent
    :members:
