@@ -39,7 +39,7 @@ class Agent(BaseModel):
         
         Args:
             client: The AI client instance (required string).
-            **kwargs: Additional keyword arguments for client configuration.
+            kwargs: Additional keyword arguments for client configuration.
         """
         kwargs["client"] = client
         super().__init__(client_kwargs=kwargs)
@@ -50,7 +50,7 @@ class Agent(BaseModel):
         
         Args:
             client (str): The name of the client to initialize (required).
-            **kwargs: Additional keyword arguments passed to the client constructor.
+            kwargs: Additional keyword arguments passed to the client constructor.
             
         Yields:
             object: An initialized client instance or None if initialization fails.
@@ -91,7 +91,7 @@ class Agent(BaseModel):
                 api_key="your-key",
                 model="gpt-4"
             )
-
+        
         """
         # Prepare arguments for the generation call
         call_kwargs = kwargs  # The additional arguments passed to the call to this function
