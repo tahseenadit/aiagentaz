@@ -49,7 +49,7 @@ exclude_patterns = ["_build"]
 pygments_style = "sphinx"
 
 # Autosummary configuration
-autosummary_generate = True
+autosummary_generate = False
 autosummary_imported_members = True
 autosummary_mock_imports = ["openai", "google.generativeai", "anthropic"]
 autosummary_context = {
