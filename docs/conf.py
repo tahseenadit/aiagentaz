@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.abspath("."))
 # Add any Sphinx extension module names here
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
     "numpydoc",
     "sphinx.ext.linkcode",
 ]
@@ -47,14 +46,6 @@ exclude_patterns = ["_build"]
 
 # The name of the Pygments style to use
 pygments_style = "sphinx"
-
-# Autosummary configuration
-autosummary_generate = False
-autosummary_imported_members = True
-autosummary_mock_imports = ["openai", "google.generativeai", "anthropic"]
-autosummary_context = {
-    'skip_inherited_members': True,
-}
 
 # Function to generate source links pointing to GitHub
 def linkcode_resolve(domain, info):
