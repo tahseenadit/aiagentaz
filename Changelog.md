@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-This is an early-stage library (version 0.1.0). The functionality may change in future releases.
+This is an early-stage library (version 0.2.0). The functionality may change in future releases.
 
 ## [0.2.0] - 2025-05-24
 
