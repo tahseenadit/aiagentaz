@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.abspath("."))
 # Add any Sphinx extension module names here
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "numpydoc",
     "sphinx.ext.linkcode",
 ]
@@ -27,8 +28,9 @@ extensions = [
 # templates_path = ["_templates"]
 autodoc_mock_imports = ["openai", "google.generativeai"]
 
-# Suppress specific warnings
-suppress_warnings = ['autosummary']
+# Autosummary configuration
+autosummary_generate = True
+autosummary_imported_members = True
 
 # The suffix of source filenames
 source_suffix = ".rst"
