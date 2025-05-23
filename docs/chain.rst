@@ -41,7 +41,7 @@ API Reference
    :special-members: __init__
 
 Chain Class
-----------
+-----------
 
 The Chain class provides the core functionality for creating and managing operation chains.
 
@@ -77,7 +77,7 @@ Example
     print(final_prompt)
 
 Error Handling
--------------
+--------------
 
 The chain system includes built-in error handling:
 

@@ -9,7 +9,7 @@ Overview
 The clients module contains implementations for various AI service providers, each with their own specific configuration and response handling.
 
 Supported Clients
----------------
+-----------------
 
 OpenAI
 ~~~~~~
@@ -54,7 +54,7 @@ Example
     )
 
 Anthropic
-~~~~~~~~
+~~~~~~~~~
 
 .. autoclass:: aiagentaz.domain.clients.anthropic.AnthropicClient
    :members:
@@ -76,7 +76,7 @@ Example
     )
 
 Client Configuration
-------------------
+--------------------
 
 Each client can be configured with the following common parameters:
 
@@ -84,7 +84,7 @@ Each client can be configured with the following common parameters:
 - Additional provider-specific parameters can be passed as keyword arguments
 
 Error Handling
--------------
+--------------
 
 All clients include built-in error handling:
 
@@ -94,7 +94,7 @@ All clients include built-in error handling:
 - Timeout handling
 
 Best Practices
--------------
+--------------
 
 1. Always use environment variables for API keys
 2. Handle API errors gracefully

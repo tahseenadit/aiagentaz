@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 AI Agent AZ
-==========
+===========
 
 A Python package that provides a simple and unified interface for interacting with various AI services.
 
@@ -61,7 +61,7 @@ Chain multiple operations using decorators:
     print(result)
 
 Graph-based Workflows
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 Create complex workflows using the graph-based system:
 
@@ -82,7 +82,7 @@ Create complex workflows using the graph-based system:
     result = workflow.execute_task()
 
 Supported AI Services
---------------------
+---------------------
 
 OpenAI
 ~~~~~~

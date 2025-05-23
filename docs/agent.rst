@@ -47,7 +47,7 @@ The Agent class accepts the following configuration parameters:
 - Additional provider-specific parameters can be passed as keyword arguments
 
 Supported Clients
-----------------
+------------------
 
 - OpenAI
 - Gemini
