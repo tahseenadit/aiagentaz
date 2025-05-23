@@ -16,10 +16,10 @@ Features
 - 🔄 Graph-based workflow system with operator chaining
 
 Quick Start
-----------
+-----------
 
 Basic Usage
-~~~~~~~~~~
+~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -36,7 +36,7 @@ Basic Usage
     print(res.content)
 
 Chain Operations
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Chain multiple operations using decorators:
 
@@ -61,7 +61,7 @@ Chain multiple operations using decorators:
     print(result)
 
 Graph-based Workflows
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 Create complex workflows using the graph-based system:
 
@@ -82,7 +82,7 @@ Create complex workflows using the graph-based system:
     result = workflow.execute_task()
 
 Supported AI Services
--------------------
+--------------------
 
 OpenAI
 ~~~~~~
@@ -97,13 +97,13 @@ Gemini
 - Models: Gemini 1.5, etc.
 
 Anthropic
-~~~~~~~~
+~~~~~~~~~
 
 - Simple text generation
 - Models: Claude 3.5, etc.
 
 API Reference
-------------
+-------------
 
 .. toctree::
    :maxdepth: 2

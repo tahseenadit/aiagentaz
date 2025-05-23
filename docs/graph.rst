@@ -88,11 +88,11 @@ Example
     result = workflow.execute_task()
 
 Error Handling
--------------
+--------------
 
 The graph system includes built-in error handling:
 
-- Validates operator dependencies
-- Ensures proper input/output flow between nodes
-- Provides clear error messages for invalid operations
-- Maintains type safety throughout the workflow 
+- Validates that all required inputs are provided
+- Ensures proper connection between nodes
+- Handles circular dependencies
+- Provides clear error messages for common issues 
