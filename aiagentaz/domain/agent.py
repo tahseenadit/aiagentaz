@@ -90,6 +90,7 @@ class Agent(BaseModel):
                 api_key="your-key",
                 model="gpt-4"
             )
+
         """
         # Prepare arguments for the generation call
         call_kwargs = kwargs  # The additional arguments passed to the call to this function
