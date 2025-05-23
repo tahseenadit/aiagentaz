@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.abspath("."))
 # Add any Sphinx extension module names here
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
     "numpydoc",
     "sphinx.ext.linkcode",
 ]
@@ -27,10 +26,6 @@ extensions = [
 # Add any paths that contain templates here. Uncomment when there are something in the directory.
 # templates_path = ["_templates"]
 autodoc_mock_imports = ["openai", "google.generativeai"]
-
-# Autosummary configuration
-autosummary_generate = True
-autosummary_imported_members = True
 
 # The suffix of source filenames
 source_suffix = ".rst"
@@ -47,7 +42,7 @@ version = aiagentaz.__version__[:3]
 release = aiagentaz.__version__
 
 # List of patterns to ignore when looking for source files
-exclude_patterns = ["_build"]
+exclude_patterns = ["_build", "_autosummary"]
 
 # The name of the Pygments style to use
 pygments_style = "sphinx"
