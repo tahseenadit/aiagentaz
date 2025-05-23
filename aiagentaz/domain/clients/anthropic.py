@@ -20,7 +20,7 @@ class AnthropicClient:
         Initialize the Anthropic client.
         
         Args:
-            **kwargs: Additional configuration parameters
+            kwargs: Additional configuration parameters
         """
         self.client = Anthropic(**kwargs)
 
@@ -33,7 +33,7 @@ class AnthropicClient:
             prompt (str): The input prompt for generation
             model (str): The model to use for generation
             max_tokens (int): Maximum number of tokens
-            **kwargs: Additional configuration parameters
+            kwargs: Additional configuration parameters
         """
 
         if not prompt or not model or not max_tokens:

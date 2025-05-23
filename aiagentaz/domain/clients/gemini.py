@@ -14,8 +14,8 @@ class GeminiClient:
         """Initialize and configure the Gemini AI client.
         
         Args:
-            **kwargs: Configuration parameters for the Gemini API.
-                     Must include 'api_key' for authentication.
+            kwargs: Configuration parameters for the Gemini API.
+                    Must include 'api_key' for authentication.
         
         Raises:
             Exception: If configuration fails (e.g., invalid API key).
@@ -32,7 +32,7 @@ class GeminiClient:
         Args:
             prompt: The input text prompt for generation (required).
             model: The name of the Gemini model to use (required).
-            **kwargs: Additional parameters for text generation.
+            kwargs: Additional parameters for text generation.
         
         Returns:
             str | None: The generated text if successful, None if an error occurs.

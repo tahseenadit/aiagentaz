@@ -39,19 +39,18 @@ class Agent(BaseModel):
         
         Args:
             client: The AI client instance (required string).
-            **kwargs: Additional keyword arguments for client configuration.
+            kwargs: Additional keyword arguments for client configuration.
         """
         kwargs["client"] = client
         super().__init__(client_kwargs=kwargs)
 
     @contextmanager
     def get_client(self, client: str, **kwargs):
-        """
-        Context manager for handling client initialization and cleanup.
+        """Context manager for handling client initialization and cleanup.
         
         Args:
             client (str): The name of the client to initialize (required).
-            **kwargs: Additional keyword arguments passed to the client constructor.
+            kwargs: Additional keyword arguments passed to the client constructor.
             
         Yields:
             object: An initialized client instance or None if initialization fails.
@@ -73,25 +72,25 @@ class Agent(BaseModel):
         finally:
             pass
 
-
     def generate(self, model=None, prompt=None, **kwargs):
-        """
-        Generate a response using the specified client and configuration.
+        """Generate a response using the specified client and configuration.
 
         Args:
             model (str): The model to use for generation. Defaults to None.
             prompt (str): The input prompt for generation. Defaults to None.
-            **kwargs: Additional keyword arguments for client configuration and generation.
+            kwargs: Additional keyword arguments for client configuration and generation.
 
         Returns:
             object: The generation result from the client, or 0 if an error occurs.
 
         Example:
+
             response = generate(
                 client="openai",
                 prompt="Write a poem",
                 api_key="your-key",
                 model="gpt-4"
+                
             )
         """
         # Prepare arguments for the generation call

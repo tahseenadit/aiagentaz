@@ -1,4 +1,4 @@
-from typing import Literal, Any, ContextManager, Optional, overload
+from typing import Literal, Any, ContextManager, overload
 
 from clients.openai import OpenAIClient
 from clients.gemini import GeminiClient

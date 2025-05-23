@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.abspath("."))
 # Add any Sphinx extension module names here
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
     "numpydoc",
     "sphinx.ext.linkcode",
 ]
@@ -43,7 +42,7 @@ version = aiagentaz.__version__[:3]
 release = aiagentaz.__version__
 
 # List of patterns to ignore when looking for source files
-exclude_patterns = ["_build"]
+exclude_patterns = ["_build", "_autosummary"]
 
 # The name of the Pygments style to use
 pygments_style = "sphinx"
@@ -97,7 +96,7 @@ def linkcode_resolve(domain, info):
 
 # -- Options for HTML output ---------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages
+# The theme to use for HTML and HTML Pages
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
     "external_links": [],
