@@ -17,7 +17,7 @@ class OpenAIClient:
         """Initialize the OpenAI client.
         
         Args:
-            **kwargs: Additional configuration parameters
+            kwargs: Additional configuration parameters
         """
         self.client = OpenAI(**kwargs)
 
@@ -27,7 +27,7 @@ class OpenAIClient:
         Args:
             prompt (str): The input prompt for generation
             model (str): The model to use for generation
-            **kwargs: Additional configuration parameters
+            kwargs: Additional configuration parameters
 
         Returns:
             ChatCompletionMessage: The generated response message

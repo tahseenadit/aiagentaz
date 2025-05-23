@@ -15,9 +15,12 @@ OpenAI
 ~~~~~~
 
 .. autoclass:: aiagentaz.domain.clients.openai.OpenAIClient
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :special-members: __init__
+
+OpenAI Methods
+^^^^^^^^^^^^^^
+
+.. automethod:: aiagentaz.domain.clients.openai.OpenAIClient.generate
 
 Example
 ^^^^^^^
@@ -36,9 +39,12 @@ Gemini
 ~~~~~~
 
 .. autoclass:: aiagentaz.domain.clients.gemini.GeminiClient
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :special-members: __init__
+
+Gemini Methods
+^^^^^^^^^^^^^^
+
+.. automethod:: aiagentaz.domain.clients.gemini.GeminiClient.generate
 
 Example
 ^^^^^^^
@@ -57,9 +63,12 @@ Anthropic
 ~~~~~~~~~
 
 .. autoclass:: aiagentaz.domain.clients.anthropic.AnthropicClient
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :special-members: __init__
+
+Anthropic Methods
+^^^^^^^^^^^^^^^^^
+
+.. automethod:: aiagentaz.domain.clients.anthropic.AnthropicClient.generate
 
 Example
 ^^^^^^^

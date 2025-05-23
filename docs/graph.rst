@@ -38,17 +38,25 @@ BasicOperator
 ~~~~~~~~~~~~~
 
 .. autoclass:: aiagentaz.domain.graph.operators.basicoperator.BasicOperator
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :special-members: __init__
+   :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
+
+BasicOperator Methods
+~~~~~~~~~~~~~~~~~~~~~    
+
+.. automethod:: aiagentaz.domain.graph.operators.basicoperator.BasicOperator.execute_task
 
 DependencyABC
 ~~~~~~~~~~~~~
 
 .. autoclass:: aiagentaz.core.graph.abc.DependencyABC
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   :special-members: __init__
+   :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
+
+DependencyABC Methods
+~~~~~~~~~~~~~~~~~~~~~
+
+.. automethod:: aiagentaz.core.graph.abc.DependencyABC.execute_task
 
 Features
 --------

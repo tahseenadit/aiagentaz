@@ -35,15 +35,20 @@ API Reference
 -------------
 
 .. autoclass:: aiagentaz.domain.chain.Chain
-   :members:
-   :undoc-members:
-   :show-inheritance:
    :special-members: __init__
+   :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
 
-Chain Class
------------
+Methods
+-------
 
-The Chain class provides the core functionality for creating and managing operation chains.
+.. automethod:: aiagentaz.domain.chain.Chain.decorate
+
+.. automethod:: aiagentaz.domain.chain.Chain.has_keyword_argument
+
+Chain Decorator
+---------------
+
+.. autofunction:: aiagentaz.domain.chain.chain
 
 Features
 --------
