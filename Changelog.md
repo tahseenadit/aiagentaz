@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This is an early-stage library (version 0.1.0). The functionality may change in future releases.
 
-## [0.2.0] - 2024-01-XX
+## [0.2.0] - 2025-05-24
 
 ### Added
 - Initial implementation for Graph-based workflow system with:
