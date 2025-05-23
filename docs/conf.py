@@ -27,6 +27,9 @@ extensions = [
 # templates_path = ["_templates"]
 autodoc_mock_imports = ["openai", "google.generativeai"]
 
+# Suppress specific warnings
+suppress_warnings = ['autosummary']
+
 # The suffix of source filenames
 source_suffix = ".rst"
 
@@ -96,7 +99,7 @@ def linkcode_resolve(domain, info):
 
 # -- Options for HTML output ---------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages
+# The theme to use for HTML and HTML Pages
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
     "external_links": [],
