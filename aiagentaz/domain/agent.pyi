@@ -2,6 +2,7 @@ from typing import Literal, Any, ContextManager, overload
 
 from clients.openai import OpenAIClient
 from clients.gemini import GeminiClient
+from clients.anthropic import AnthropicClient
 
 class Agent:
     client: str
@@ -9,7 +10,7 @@ class Agent:
     
     def __init__(
             self, 
-            client: Literal["openai", "gemini"], 
+            client: Literal["openai", "gemini", "anthropic"], 
             /, 
             **kwargs: Any
         ) -> None: ...
@@ -27,3 +28,10 @@ class Agent:
             client: Literal["gemini"], 
             **kwargs: Any
         ) -> ContextManager[GeminiClient]: ...
+    
+    @overload
+    def get_client(
+            self, 
+            client: Literal["anthropic"], 
+            **kwargs: Any
+        ) -> ContextManager[AnthropicClient]: ...

@@ -17,9 +17,6 @@ class Agent(BaseModel):
     This class serves as a foundation for AI agents, managing client configuration
     and initialization parameters.
     
-    Attributes:
-        client: The required AI client instance (must be a string).
-        client_kwargs: Dictionary storing client configuration parameters.
     """
     client_kwargs: dict = Field(default_factory=dict, description="Client configuration parameters including the client instance")
 
