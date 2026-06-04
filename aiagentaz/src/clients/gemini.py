@@ -1,4 +1,6 @@
-import google.generativeai as genai
+from google import genai
+from google.genai import types
+from aiagentaz.src.core.prompts.gemini_prompts import SYSTEM_PROMPT_VALIDATE_GUARDRAILS
 
 class GeminiClient:
     """Client for interacting with Google's Gemini AI model.
@@ -22,10 +24,56 @@ class GeminiClient:
         """
         try:
             # Configure the Gemini API with provided parameters
-            genai.configure(**kwargs)
+            self.client = genai.Client(**kwargs)
+            self.tools: list = []
         except Exception as e:
             print(f"Error configuring API: {e}")
 
+
+    def _validate_guardrails(
+        self, 
+        model: str, 
+        tools: list[str], 
+        guardrails: list[str], 
+        **kwargs
+    ) -> dict:
+        """Validate the guardrails for the prompt and model.
+        
+        Args:
+            prompt: The input text prompt for generation (required).
+            model: The name of the Gemini model to use (required).
+            kwargs: Additional parameters for text generation.
+        """
+        prompt = SYSTEM_PROMPT_VALIDATE_GUARDRAILS.format(
+            tools=tools,
+            guardrails=guardrails
+        )
+        response = self.client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return response.choices[0].message.content
+
+
+    def bind_tools(self, tools: list, **kwargs) -> None:
+        """Bind the tools to the agent.
+
+        Args:
+            tools: The list of tools to bind to the agent (required).
+            kwargs: Additional parameters for text generation.
+        """
+        self.tools = tools
+
+    
+    def validate_tools(self, **kwargs) -> None:
+        """Validate the tools for the agent.
+
+        Args:
+            kwargs: Additional parameters for text generation.
+        """
+        self._validate_guardrails(self.tools, **kwargs)
+
+    
     def generate(self, prompt: str, model: str, **kwargs) -> str:
         """Generate text using the specified Gemini model.
         
@@ -42,10 +90,12 @@ class GeminiClient:
         """
         if not prompt or not model:
             raise ValueError("Both prompt and model parameters are required.")
-            
+        
+
+
         try:
             # Initialize the model with specified name
-            self.model = genai.GenerativeModel(model_name=model)            
+            self.chat = self.client.chats.create(model=model)            
             # Generate content based on the prompt
             response = self.model.generate_content(prompt)            
             return response.text            

@@ -8,8 +8,8 @@ responses using different AI service providers.
 from contextlib import contextmanager
 from pydantic import BaseModel, Field, field_validator
 
-from ..core.clients import known_clients
-from ..core.request import Request
+from .core.clients import known_clients
+from .core.request import Request
 
 class Agent(BaseModel):
     """Base Agent class for handling AI client interactions.
@@ -68,6 +68,39 @@ class Agent(BaseModel):
             yield None
         finally:
             pass
+    
+    def bind_tools(self, tools: list, **kwargs) -> None:
+        """Bind the tools for the agent.
+
+        Args:
+            kwargs: Additional parameters for text generation.
+        """
+        # Prepare arguments for the generation call
+        call_kwargs = kwargs  # The additional arguments passed to the call to this function
+
+        with self.get_client(**self.client_kwargs) as client:
+            if client:
+                try:
+                    client.bind_tools(tools=tools, **call_kwargs)
+                except Exception as e:
+                    print(f"Error during binding tools: {e}")
+
+
+    def validate_tools(self, **kwargs) -> None:
+        """Validate the tools for the agent.
+
+        Args:
+            kwargs: Additional parameters for text generation.
+        """
+        # Prepare arguments for the validation call
+        call_kwargs = kwargs  # The additional arguments passed to the call to this function
+
+        with self.get_client(**self.client_kwargs) as client:
+            if client:
+                try:
+                    client.validate_tools(**call_kwargs)
+                except Exception as e:
+                    print(f"Error during validation: {e}")
 
     def generate(self, model=None, prompt=None, **kwargs):
         """Generate a response using the specified client and configuration.

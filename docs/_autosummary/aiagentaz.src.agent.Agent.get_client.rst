@@ -1,7 +1,7 @@
-aiagentaz.domain.agent.Agent.get_client
+aiagentaz.src.agent.Agent.get_client
 =======================================
 
-.. currentmodule:: aiagentaz.domain.agent
+.. currentmodule:: aiagentaz.src.agent
 
 .. automethod:: Agent.get_client
    :noindex: 

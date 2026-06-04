@@ -45,19 +45,19 @@ known_clients = dict()
 known_clients["openai"] = ClientConfig(
     name="openai",
     class_name="OpenAIClient",
-    module_name="aiagentaz.domain.clients.openai"
+    module_name="aiagentaz.src.clients.openai"
 )
 
 # Register the Gemini client configuration
 known_clients["gemini"] = ClientConfig(
     name="gemini",
     class_name="GeminiClient",
-    module_name="aiagentaz.domain.clients.gemini"
+    module_name="aiagentaz.src.clients.gemini"
 )
 
 # Register the Anthropic client configuration
 known_clients["anthropic"] = ClientConfig(
     name="anthropic",
     class_name="AnthropicClient",
-    module_name="aiagentaz.domain.clients.anthropic"
+    module_name="aiagentaz.src.clients.anthropic"
 )

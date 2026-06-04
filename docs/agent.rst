@@ -13,7 +13,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from aiagentaz.domain.agent import Agent
+    from aiagentaz.src.agent import Agent
 
     # Initialize an agent with OpenAI
     agent = Agent(
@@ -30,18 +30,18 @@ Basic Usage
 API Reference
 -------------
 
-.. autoclass:: aiagentaz.domain.agent.Agent
+.. autoclass:: aiagentaz.src.agent.Agent
    :special-members: __init__
    :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings, copy
 
 Methods
 -------
 
-.. automethod:: aiagentaz.domain.agent.Agent.generate
+.. automethod:: aiagentaz.src.agent.Agent.generate
 
-.. automethod:: aiagentaz.domain.agent.Agent.get_client
+.. automethod:: aiagentaz.src.agent.Agent.get_client
 
-.. automethod:: aiagentaz.domain.agent.Agent.validate_client
+.. automethod:: aiagentaz.src.agent.Agent.validate_client
 
 Configuration
 -------------
@@ -64,7 +64,7 @@ Example
 
 .. code-block:: python
 
-    from aiagentaz.domain.agent import Agent
+    from aiagentaz.src.agent import Agent
 
     # Initialize with OpenAI
     openai_agent = Agent(

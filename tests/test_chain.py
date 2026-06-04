@@ -1,4 +1,4 @@
-from aiagentaz.domain.chain import chain
+from aiagentaz.src.chain import chain
 import pytest
 
 def test_chain_single_function():

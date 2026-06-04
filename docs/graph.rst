@@ -13,7 +13,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from aiagentaz.domain.graph.operators.basicoperator import BasicOperator
+    from aiagentaz.src.core.graph.operators.basicoperator import BasicOperator
 
     def task_1(input_from_upstream_node: str):
         return "task_1_result"
@@ -37,26 +37,26 @@ API Reference
 BasicOperator
 ~~~~~~~~~~~~~
 
-.. autoclass:: aiagentaz.domain.graph.operators.basicoperator.BasicOperator
+.. autoclass:: aiagentaz.src.core.graph.operators.basicoperator.BasicOperator
    :special-members: __init__
    :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
 
 BasicOperator Methods
 ~~~~~~~~~~~~~~~~~~~~~    
 
-.. automethod:: aiagentaz.domain.graph.operators.basicoperator.BasicOperator.execute_task
+.. automethod:: aiagentaz.src.core.graph.operators.basicoperator.BasicOperator.execute_task
 
 DependencyABC
 ~~~~~~~~~~~~~
 
-.. autoclass:: aiagentaz.core.graph.abc.DependencyABC
+.. autoclass:: aiagentaz.src.core.graph.abc.DependencyABC
    :special-members: __init__
    :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
 
 DependencyABC Methods
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. automethod:: aiagentaz.core.graph.abc.DependencyABC.execute_task
+.. automethod:: aiagentaz.src.core.graph.abc.DependencyABC.execute_task
 
 Features
 --------
@@ -72,7 +72,7 @@ Example
 
 .. code-block:: python
 
-    from aiagentaz.domain.graph.operators.basicoperator import BasicOperator
+    from aiagentaz.src.core.graph.operators.basicoperator import BasicOperator
 
     def generate_prompt(input_from_upstream_node: str):
         return "Write a story about " + input_from_upstream_node

@@ -1,8 +1,8 @@
 from typing import Literal, Any, ContextManager, overload
 
-from clients.openai import OpenAIClient
-from clients.gemini import GeminiClient
-from clients.anthropic import AnthropicClient
+from aiagentaz.src.clients.openai import OpenAIClient
+from aiagentaz.src.clients.gemini import GeminiClient
+from aiagentaz.src.clients.anthropic import AnthropicClient
 
 class Agent:
     client: str

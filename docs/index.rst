@@ -23,7 +23,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from aiagentaz.domain.agent import Agent
+    from aiagentaz.src.agent import Agent
 
     my_agent = Agent(
         client="openai", 
@@ -42,7 +42,7 @@ Chain multiple operations using decorators:
 
 .. code-block:: python
 
-    from aiagentaz.domain.chain import chain
+    from aiagentaz.src.chain import chain
 
     @chain
     def get_prompt():
@@ -67,7 +67,7 @@ Create complex workflows using the graph-based system:
 
 .. code-block:: python
 
-    from aiagentaz.domain.graph.operators.basicoperator import BasicOperator
+    from aiagentaz.src.core.graph.operators.basicoperator import BasicOperator
 
     def task_1(input_from_upstream_node: str):
         return "task_1_result"

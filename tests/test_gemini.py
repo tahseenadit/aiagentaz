@@ -6,7 +6,7 @@ Tests the agent's ability to generate responses using Gemini's API.
 
 from unittest.mock import patch, Mock
 
-from aiagentaz.domain.agent import Agent
+from aiagentaz.src.agent import Agent
 
 
 def test_gemini_generate():
@@ -18,7 +18,7 @@ def test_gemini_generate():
     mock_response = Mock()
     mock_response.content = "print('Hello, World!')"
 
-    with patch('aiagentaz.domain.agent.Agent.generate') as mock_generate:
+    with patch('aiagentaz.src.agent.Agent.generate') as mock_generate:
         mock_generate.return_value = mock_response
 
         # Test the function call

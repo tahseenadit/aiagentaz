@@ -1,5 +1,5 @@
 import inspect
-from aiagentaz.core.chain import Chain
+from aiagentaz.src.core.chain import Chain
 from typing import Callable
 
 def chain(func: Callable) -> Callable:

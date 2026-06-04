@@ -1,4 +1,4 @@
-from aiagentaz.domain.graph.operators.basicoperator import BasicOperator
+from aiagentaz.src.core.graph.operators.basicoperator import BasicOperator
 import pytest
 
 def test_basic_operator():

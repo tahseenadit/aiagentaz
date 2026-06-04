@@ -1,7 +1,7 @@
-aiagentaz.domain.agent.Agent.generate
+aiagentaz.src.agent.Agent.generate
 =====================================
 
-.. currentmodule:: aiagentaz.domain.agent
+.. currentmodule:: aiagentaz.src.agent
 
 .. automethod:: Agent.generate
    :noindex: 
