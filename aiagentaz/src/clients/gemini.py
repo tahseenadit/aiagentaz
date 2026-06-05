@@ -3,6 +3,8 @@ from google.genai import types
 from aiagentaz.src.core.prompts.gemini_prompts import SYSTEM_PROMPT_VALIDATE_GUARDRAILS
 from aiagentaz.src.tools import Tool
 
+import inspect
+
 class GeminiClient:
     """Client for interacting with Google's Gemini AI model.
     
@@ -31,23 +33,46 @@ class GeminiClient:
             print(f"Error configuring API: {e}")
 
 
-    def _validate_guardrails(
+    def _construct_tools_metadata(self, tools: list[Tool]) -> list[dict]:
+        """Construct the metadata for the tools.
+        
+        Args:
+            tools: The list of tools to construct the metadata for (required). Must be a list of Tool objects.
+
+        Returns:
+            list[dict]: The metadata for the tools.
+        """
+        tools_metadata = []
+        for tool in tools:
+            source_code = inspect.getsource(tool.fn)
+            tools_metadata.append({
+                "name": tool.name,
+                "source_code": source_code,
+                "policies": tool.policies
+            })
+        return tools_metadata
+
+    def _validate_tools(
         self, 
         model: str, 
         tools: list[Tool], 
-        guardrails: list[str], 
+        policies: list[str], 
         **kwargs
     ) -> dict:
-        """Validate the guardrails for the prompt and model.
+        """Validate the policies for the tools.
         
         Args:
-            prompt: The input text prompt for generation (required).
             model: The name of the Gemini model to use (required).
+            tools: The list of tools to validate (required). Must be a list of Tool objects.
+            policies: The list of policies to validate (required). Must be a list of strings.
             kwargs: Additional parameters for text generation.
         """
-        prompt = SYSTEM_PROMPT_VALIDATE_GUARDRAILS.format(
-            tools=tools,
-            guardrails=guardrails
+        # Construct the metadata for the tools
+        tools_metadata = self._construct_tools_metadata(tools)
+        print(tools_metadata)
+        # Construct the prompt for the validation
+        prompt = SYSTEM_PROMPT_VALIDATE_TOOLS.format(
+            tools=tools_metadata,
         )
         response = self.client.chat.completions.create(
             model=model,
@@ -72,7 +97,7 @@ class GeminiClient:
         Args:
             kwargs: Additional parameters for text generation.
         """
-        self._validate_guardrails(self.tools, **kwargs)
+        self._validate_tools(self.tools, **kwargs)
 
     
     def generate(self, prompt: str, model: str, **kwargs) -> str:

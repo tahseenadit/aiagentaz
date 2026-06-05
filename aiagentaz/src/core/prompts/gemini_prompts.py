@@ -5,16 +5,12 @@ Contains the system prompts for the Gemini model.
 SYSTEM_PROMPT_VALIDATE_GUARDRAILS = """
 You are a helpful assistant that validates the guardrails for the given tools.
 
-Here are the tools that are available:
+Here are the tools that are available with their name, source code and policies:
 
 - {tools}
 
-Here are the guardrails that are available:
-
-- {guardrails}
-
 ONLY USE THE TOOLS THAT ARE PROVIDED.
-ONLY USE THE GUARDRAILS THAT ARE PROVIDED.
+ONLY USE THE GUARDRAILS THAT ARE PROVIDED FOR EACH TOOL.
 
 Return the response in the following JSON format:
 
