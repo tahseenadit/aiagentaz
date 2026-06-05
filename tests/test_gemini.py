@@ -37,13 +37,42 @@ def test_gemini_bind_tools():
     # Create an agent instance
     test_agent = Agent(client="gemini", api_key="test-key")
     
-    
+    # Create a test tool function
     def test_tool(self, prompt: str) -> str:
         return "print('Hello, World!')"
 
+    # Create a test tool object with the test tool function
     test_tool = Tool(name="test_tool", fn=test_tool)
-    test_tools = [test_tool]
     
+    # Bind the test policies to the test tool
+    test_tool.bind_policies(policies=["test_policy"])
 
+    # Create a list of test tools
+    test_tools = [test_tool]
+
+    # Bind the test tools to the test agent
+    test_agent.bind_tools(tools=test_tools)
+    assert test_agent.tools == test_tools
+
+
+def test_gemini_validate_tools():
+    """Test the Gemini validate tools function with mocked API response."""
+    # Create an agent instance
+    test_agent = Agent(client="gemini", api_key="test-key")
+    
+    # Create a test tool function
+    def test_tool(self, prompt: str) -> str:
+        return "print('Hello, World!')"
+
+    # Create a test tool object with the test tool function
+    test_tool = Tool(name="test_tool", fn=test_tool)
+    
+    # Bind the test policies to the test tool
+    test_tool.bind_policies(policies=["test_policy"])
+
+    # Create a list of test tools
+    test_tools = [test_tool]
+
+    # Bind the test tools to the test agent
     test_agent.bind_tools(tools=test_tools)
     test_agent.validate_tools()

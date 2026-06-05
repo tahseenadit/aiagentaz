@@ -41,7 +41,13 @@ class Agent(BaseModel):
         """
         kwargs["client"] = client
         super().__init__(client_kwargs=kwargs)
-        
+
+        self.client = None
+        with self.get_client(client=client, **self.client_kwargs) as client:
+            if client:
+                self.client = client
+            else:
+                raise ValueError("Failed to initialize client")
 
     @contextmanager
     def get_client(self, client: str, **kwargs):
@@ -81,13 +87,11 @@ class Agent(BaseModel):
         """
         # Prepare arguments for the generation call
         call_kwargs = kwargs  # The additional arguments passed to the call to this function
-
-        with self.get_client(**self.client_kwargs) as client:
-            if client:
-                try:
-                    client.bind_tools(tools=tools, **call_kwargs)
-                except Exception as e:
-                    print(f"Error during binding tools: {e}")
+        
+        try:
+            self.client.bind_tools(tools=tools, **call_kwargs)
+        except Exception as e:
+            print(f"Error during binding tools: {e}")
 
 
     def validate_tools(self, **kwargs) -> None:
@@ -99,12 +103,10 @@ class Agent(BaseModel):
         # Prepare arguments for the validation call
         call_kwargs = kwargs  # The additional arguments passed to the call to this function
 
-        with self.get_client(**self.client_kwargs) as client:
-            if client:
-                try:
-                    client.validate_tools(**call_kwargs)
-                except Exception as e:
-                    print(f"Error during validation: {e}")
+        try:
+            self.client.validate_tools(**call_kwargs)
+        except Exception as e:
+            print(f"Error during validation: {e}")
 
 
     def generate(self, model=None, prompt=None, **kwargs):
@@ -131,12 +133,9 @@ class Agent(BaseModel):
         # Prepare arguments for the generation call
         call_kwargs = kwargs  # The additional arguments passed to the call to this function
 
-        # Initialize client and generate response
-        with self.get_client(**self.client_kwargs) as client:
-            if client:
-                try:
-                    res = client.generate(prompt=prompt, model=model, **call_kwargs)
-                    return res
-                except Exception as e:
-                    print(f"Error during generation: {e}")
+        try:
+            res = self.client.generate(prompt=prompt, model=model, **call_kwargs)
+            return res
+        except Exception as e:
+            print(f"Error during generation: {e}")
 
