@@ -7,6 +7,7 @@ Tests the agent's ability to generate responses using Gemini's API.
 from unittest.mock import patch, Mock
 
 from aiagentaz.src.agent import Agent
+from aiagentaz.src.tools import Tool, tool
 
 
 def test_gemini_generate():
@@ -29,3 +30,20 @@ def test_gemini_generate():
 
         # Verify the response matches our expected output
         assert response.content == "print('Hello, World!')"
+
+
+def test_gemini_bind_tools():
+    """Test the Gemini bind tools function with mocked API response."""
+    # Create an agent instance
+    test_agent = Agent(client="gemini", api_key="test-key")
+    
+    
+    def test_tool(self, prompt: str) -> str:
+        return "print('Hello, World!')"
+
+    test_tool = Tool(name="test_tool", fn=test_tool)
+    test_tools = [test_tool]
+    
+
+    test_agent.bind_tools(tools=test_tools)
+    test_agent.validate_tools()

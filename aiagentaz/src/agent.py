@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field, field_validator
 
 from .core.clients import known_clients
 from .core.request import Request
+from .tools import Tool
 
 class Agent(BaseModel):
     """Base Agent class for handling AI client interactions.
@@ -40,6 +41,7 @@ class Agent(BaseModel):
         """
         kwargs["client"] = client
         super().__init__(client_kwargs=kwargs)
+        
 
     @contextmanager
     def get_client(self, client: str, **kwargs):
@@ -68,11 +70,13 @@ class Agent(BaseModel):
             yield None
         finally:
             pass
+
     
-    def bind_tools(self, tools: list, **kwargs) -> None:
+    def bind_tools(self, tools: list[Tool], **kwargs) -> None:
         """Bind the tools for the agent.
 
         Args:
+            tools: The list of tools to bind to the agent (required). Must be a list of Tool objects.
             kwargs: Additional parameters for text generation.
         """
         # Prepare arguments for the generation call
@@ -101,6 +105,7 @@ class Agent(BaseModel):
                     client.validate_tools(**call_kwargs)
                 except Exception as e:
                     print(f"Error during validation: {e}")
+
 
     def generate(self, model=None, prompt=None, **kwargs):
         """Generate a response using the specified client and configuration.

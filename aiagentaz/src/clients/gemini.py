@@ -1,6 +1,7 @@
 from google import genai
 from google.genai import types
 from aiagentaz.src.core.prompts.gemini_prompts import SYSTEM_PROMPT_VALIDATE_GUARDRAILS
+from aiagentaz.src.tools import Tool
 
 class GeminiClient:
     """Client for interacting with Google's Gemini AI model.
@@ -25,7 +26,7 @@ class GeminiClient:
         try:
             # Configure the Gemini API with provided parameters
             self.client = genai.Client(**kwargs)
-            self.tools: list = []
+            self.tools: list[Tool] = []
         except Exception as e:
             print(f"Error configuring API: {e}")
 
@@ -33,7 +34,7 @@ class GeminiClient:
     def _validate_guardrails(
         self, 
         model: str, 
-        tools: list[str], 
+        tools: list[Tool], 
         guardrails: list[str], 
         **kwargs
     ) -> dict:
@@ -55,11 +56,11 @@ class GeminiClient:
         return response.choices[0].message.content
 
 
-    def bind_tools(self, tools: list, **kwargs) -> None:
+    def bind_tools(self, tools: list[Tool], **kwargs) -> None:
         """Bind the tools to the agent.
 
         Args:
-            tools: The list of tools to bind to the agent (required).
+            tools: The list of tools to bind to the agent (required). Must be a list of Tool objects.
             kwargs: Additional parameters for text generation.
         """
         self.tools = tools
