@@ -45,7 +45,7 @@ def test_gemini_bind_tools():
     test_tool = Tool(name="test_tool", fn=test_tool)
     
     # Bind the test policies to the test tool
-    test_tool.bind_policies(policies=["test_policy"])
+    test_tool.bind_policies(policies=["Should only return a string"])
 
     # Create a list of test tools
     test_tools = [test_tool]
@@ -68,7 +68,7 @@ def test_gemini_validate_tools():
     test_tool = Tool(name="test_tool", fn=test_tool)
     
     # Bind the test policies to the test tool
-    test_tool.bind_policies(policies=["test_policy"])
+    test_tool.bind_policies(policies=["Should only return a string"])
 
     # Create a list of test tools
     test_tools = [test_tool]

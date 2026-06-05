@@ -72,7 +72,7 @@ class GeminiClient:
         print(tools_metadata)
         # Construct the prompt for the validation
         prompt = SYSTEM_PROMPT_VALIDATE_TOOLS.format(
-            tools=tools_metadata,
+            tools=tools_metadata
         )
         response = self.client.chat.completions.create(
             model=model,
