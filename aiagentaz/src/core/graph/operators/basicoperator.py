@@ -1,6 +1,6 @@
 from typing import Callable, Any
 
-from aiagentaz.core.graph.node import BaseNode
+from aiagentaz.src.core.graph.node import BaseNode
 
 class BasicOperator(BaseNode):
     """Basic operator class. This is a basic operator that can be used to create a graph.

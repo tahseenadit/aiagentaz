@@ -1,7 +1,7 @@
-aiagentaz.domain.agent.Agent.validate_client
+aiagentaz.src.agent.Agent.validate_client
 ============================================
 
-.. currentmodule:: aiagentaz.domain.agent
+.. currentmodule:: aiagentaz.src.agent
 
 .. automethod:: Agent.validate_client
    :noindex: 

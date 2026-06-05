@@ -13,7 +13,7 @@ Basic Usage
 
 .. code-block:: python
 
-    from aiagentaz.domain.chain import chain
+    from aiagentaz.src.chain import chain
 
     @chain
     def get_prompt():
@@ -34,21 +34,21 @@ Basic Usage
 API Reference
 -------------
 
-.. autoclass:: aiagentaz.domain.chain.Chain
+.. autoclass:: aiagentaz.src.chain.Chain
    :special-members: __init__
    :exclude-members: model_construct, model_copy, model_dump, model_dump_json, model_json_schema, model_parametrized_name, model_post_init, model_rebuild, model_validate, model_validate_json, model_validate_strings
 
 Methods
 -------
 
-.. automethod:: aiagentaz.domain.chain.Chain.decorate
+.. automethod:: aiagentaz.src.chain.Chain.decorate
 
-.. automethod:: aiagentaz.domain.chain.Chain.has_keyword_argument
+.. automethod:: aiagentaz.src.chain.Chain.has_keyword_argument
 
 Chain Decorator
 ---------------
 
-.. autofunction:: aiagentaz.domain.chain.chain
+.. autofunction:: aiagentaz.src.chain.chain
 
 Features
 --------
@@ -63,7 +63,7 @@ Example
 
 .. code-block:: python
 
-    from aiagentaz.domain.chain import chain
+    from aiagentaz.src.chain import chain
 
     @chain
     def generate_initial_prompt():

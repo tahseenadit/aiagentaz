@@ -14,20 +14,20 @@ Supported Clients
 OpenAI
 ~~~~~~
 
-.. autoclass:: aiagentaz.domain.clients.openai.OpenAIClient
+.. autoclass:: aiagentaz.src.clients.openai.OpenAIClient
    :special-members: __init__
 
 OpenAI Methods
 ^^^^^^^^^^^^^^
 
-.. automethod:: aiagentaz.domain.clients.openai.OpenAIClient.generate
+.. automethod:: aiagentaz.src.clients.openai.OpenAIClient.generate
 
 Example
 ^^^^^^^
 
 .. code-block:: python
 
-    from aiagentaz.domain.clients.openai import OpenAIClient
+    from aiagentaz.src.clients.openai import OpenAIClient
 
     client = OpenAIClient(api_key="your-api-key")
     response = client.generate(
@@ -38,20 +38,20 @@ Example
 Gemini
 ~~~~~~
 
-.. autoclass:: aiagentaz.domain.clients.gemini.GeminiClient
+.. autoclass:: aiagentaz.src.clients.gemini.GeminiClient
    :special-members: __init__
 
 Gemini Methods
 ^^^^^^^^^^^^^^
 
-.. automethod:: aiagentaz.domain.clients.gemini.GeminiClient.generate
+.. automethod:: aiagentaz.src.clients.gemini.GeminiClient.generate
 
 Example
 ^^^^^^^
 
 .. code-block:: python
 
-    from aiagentaz.domain.clients.gemini import GeminiClient
+    from aiagentaz.src.clients.gemini import GeminiClient
 
     client = GeminiClient(api_key="your-api-key")
     response = client.generate(
@@ -62,20 +62,20 @@ Example
 Anthropic
 ~~~~~~~~~
 
-.. autoclass:: aiagentaz.domain.clients.anthropic.AnthropicClient
+.. autoclass:: aiagentaz.src.clients.anthropic.AnthropicClient
    :special-members: __init__
 
 Anthropic Methods
 ^^^^^^^^^^^^^^^^^
 
-.. automethod:: aiagentaz.domain.clients.anthropic.AnthropicClient.generate
+.. automethod:: aiagentaz.src.clients.anthropic.AnthropicClient.generate
 
 Example
 ^^^^^^^
 
 .. code-block:: python
 
-    from aiagentaz.domain.clients.anthropic import AnthropicClient
+    from aiagentaz.src.clients.anthropic import AnthropicClient
 
     client = AnthropicClient(api_key="your-api-key")
     response = client.generate(

@@ -1,4 +1,4 @@
-from aiagentaz.core.graph.abc import DependencyABC
+from aiagentaz.src.core.graph.abc import DependencyABC
 
 from abc import abstractmethod
 from typing import Any
